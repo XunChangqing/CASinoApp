@@ -14,8 +14,8 @@
 /log/*.log
 /tmp
 
-/config/database.yml
-/config/cas.yml
+#/config/database.yml
+#/config/cas.yml
 
 /vendor/bundle
 /public/assets
