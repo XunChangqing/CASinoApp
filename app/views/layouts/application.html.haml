@@ -1,0 +1,53 @@
+-#<!DOCTYPE html>
+-#<html>
+-#<head>
+  -#<title><%= CASino.config.frontend[:sso_name] %></title>
+  -#<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  -#<%= stylesheet_link_tag    "application", :media => "all" %>
+  -#<%= javascript_tag         "window.CASino = { baseUrl: '#{root_path}' };" %>
+  -#<%= javascript_include_tag "application" %>
+  -#<%= csrf_meta_tags %>
+  -#<%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+  -#<%= favicon_link_tag 'logo.png', type: 'image/png', rel: 'logo' %>
+-#</head>
+-#<body>
+
+  -#<%= yield %>
+
+-#</body>
+-#</html>
+
+<!DOCTYPE html>
+%html
+  %head
+    -#%title TdtcPolice
+    %title= yield(:title)
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    =stylesheet_link_tag "application", media: "all" 
+    =javascript_tag  "window.CASino = { baseUrl: '#{root_path}' };"
+    =javascript_include_tag "application"
+    =csrf_meta_tags
+    =favicon_link_tag 'favicon.png', type: 'image/png'
+    =favicon_link_tag 'logo.png', type: 'image/png', rel: 'logo'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    -#<!--[if lt IE 9]>
+      -#<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      -#</script>
+    -#<![endif]-->
+    -#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    -#= javascript_include_tag 'application', 'data-turbolinks-track' => true
+    -#= csrf_meta_tags
+    -#-#<!--[if lt IE 9]>
+      -#-#<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      -#-#</script>
+    -#-#<![endif]-->
+
+    -#%title= CASino.config.frontend[:sso_name]
+
+  %body
+    = render "layouts/header"
+    .container
+      = yield
+

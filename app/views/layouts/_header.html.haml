@@ -1,0 +1,16 @@
+%header.navbar.navbar-inverse
+  %p= CASino.config.frontend[:sso_name]
+  .container
+    = link_to t("tdtc_project"), CASino.config.tdtc[:tdtc_home_url] , {id: "logo"}
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to t("common.home"), CASino.config.tdtc[:tdtc_home_url]
+        -unless session[:cas_user]
+          %li= link_to t("common.sign_up"), CASino.config.tdtc[:tdtc_signup_url]
+          %li= link_to t("common.log_in"), CASino.config.tdtc[:tdtc_login_url]
+        -#-if session[:cas_user]
+          -#%li= link_to current_user.username, CASino.config.tdtc[:tdtc_profile_url]
+          -#-if current_user.is? "user.user_admin"
+            -#%li= link_to t("user.admin"), users_url
+          %li= link_to t("common.log_out"), registrations_logout_url
+        %li= link_to t("common.help"), CASino.config.tdtc[:tdtc_help_url]

@@ -1,0 +1,102 @@
+zh-cn:
+  tdtc_project: "天大天财"
+  common:
+    log_in: "登录"
+    log_out: "退出"
+    sign_up: "注册"
+    home: "主页"
+    help: "帮助"
+    about: "关于"
+    contact: "联系我们"
+    news: "新闻"
+    error: "错误"
+    not_allowed_access: "不允许访问该页面"
+  user:
+    created_at: "创建时间"
+    updated_at: "更新时间"
+    username: "用户名"
+    email: "电子邮件地址"
+    password: "密码"
+    remember_me: '记住我'
+    password_confirmation: "重复密码"
+    operations: "操作"
+    edit: "编辑"
+    show: "查看"
+    destroy: "删除"
+    new: "新建"
+    list: "用户列表"
+    back: "后退"
+    save: "保存"
+    info: "用户信息"
+    index: "用户列表"
+    signup: "注册"
+    created_successfully: "用户成功创建！"
+    updated_successfully: "用户信息修改成功！"
+    submit: "提交"
+    cancel: "取消"
+    signup_successfully: "注册成功！"
+    signup_warning: "账户需要管理员审核批准才能使用！"
+    admin: "用户管理"
+    user_admin: "用户管理员"
+    reporter: "报表管理员"
+    case_admin: "案事件管理员"
+    seria_admin: "串并案管理员"
+    image_resource_admin: "图像资源管理员"
+    analysisor_admin: "图像自动分析客户端用户"
+    checker: "审核员"
+    password_leave_blank: "(留空不进行修改)"
+    authority: "权限"
+    forget_password: '忘记密码？'
+
+  activerecord:
+    models:
+      post: "海报"
+      user: "用户"
+    attributes:
+      user:
+        username: "用户名"
+        email: "电子邮件地址"
+        password: "密码"
+        password_confirmation: "重复密码"
+      post: 
+        title: "标题"
+        body: "内容"
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              too_short: "太短"
+              blank: "为空"
+        user:
+          attributes:
+            username:
+              taken: "已被占用"
+            email:
+            password:
+              too_short: "太短"
+              blank: "为空"
+            password_confirmation:
+              confirmation: "不正确"
+              blank: "为空"
+            email:
+              invalid: "无效"
+
+  helpers:
+    submit:
+      create: "创建 %{model}"
+      update: "更新 %{model}"
+
+  time:
+    formats:
+      default: "%Y年%m月%d日%H:%M:%S"
+
+  pundit:
+    default: '你无法执行此操作。'
+    post_policy:
+      update?: '你不能编辑此海报！'
+      create?: '你不能创建海报！'
+
+  login_credential_acceptor:
+    invalid_login_ticket: '登录凭证无效'
+    invalid_login_credentials: '用户名密码不正确或未激活'
