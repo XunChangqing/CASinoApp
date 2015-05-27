@@ -1,10 +1,10 @@
 %header.navbar.navbar-inverse
-  %p= CASino.config.frontend[:sso_name]
+  -#%p= CASino.config.frontend[:sso_name]
   .container
     = link_to t("tdtc_project"), CASino.config.tdtc[:tdtc_home_url] , {id: "logo"}
     %nav
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to t("common.home"), CASino.config.tdtc[:tdtc_home_url]
+        -#%li= link_to t("common.home"), CASino.config.tdtc[:tdtc_home_url]
         -unless session[:cas_user]
           %li= link_to t("common.sign_up"), CASino.config.tdtc[:tdtc_signup_url]
           %li= link_to t("common.log_in"), CASino.config.tdtc[:tdtc_login_url]

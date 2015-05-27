@@ -1,32 +1,47 @@
 - provide :title, t('common.log_in')
 - login_notice = t('login.notice', default: '')
 .container
-  %h1= t("common.log_in")
   
   -#.login.box
-  = render 'messages'
   -#.logo
     -#= image_tag "logo.png"
 
-  .form
+  -#.form
+    -#= form_tag(login_path, method: :post, id: "login-form") do
+      -#= hidden_field_tag :lt, @login_ticket.ticket
+      -#= hidden_field_tag :service, params[:service] unless params[:service].nil?
+      -#.form-group
+        -#= label_tag :username, t('user.username')
+        -#= text_field_tag :username, params[:username], autofocus:true
+      -#.form-group
+        -#= label_tag :password, t('user.password')
+        -#= password_field_tag :password
+      -#.form-grup
+        -#= label_tag :rememberMe do
+          -#= check_box_tag :rememberMe, 1, params[:rememberMe] 
+          -#= t('user.remember_me')
+      -#= button_tag t('common.log_in'), :class => "button"
+  = form_tag(login_path, method: :post, class: "form-signin") do
+    %h2= t("common.log_in")
+    = render 'messages'
     - unless login_notice.blank?
       .notice.box
         i.icon-info
         = login_notice
-    = form_tag(login_path, method: :post, id: "login-form") do
-      = hidden_field_tag :lt, @login_ticket.ticket
-      = hidden_field_tag :service, params[:service] unless params[:service].nil?
-      .form-group
-        = label_tag :username, t('user.username')
-        = text_field_tag :username, params[:username], autofocus:true
-      .form-group
-        = label_tag :password, t('user.password')
-        = password_field_tag :password
-      .form-grup
-        = label_tag :rememberMe do
-          = check_box_tag :rememberMe, 1, params[:rememberMe] 
-          = t('user.remember_me')
-      = button_tag t('common.log_in'), :class => "button"
+    = hidden_field_tag :lt, @login_ticket.ticket
+    = hidden_field_tag :service, params[:service] unless params[:service].nil?
+    .form-group
+      = label_tag :username, t('user.username')
+      = text_field_tag :username, params[:username], autofocus:true
+    .form-group
+      = label_tag :password, t('user.password')
+      = password_field_tag :password
+    .form-grup
+      = label_tag :rememberMe do
+        = check_box_tag :rememberMe, 1, params[:rememberMe] 
+        = t('user.remember_me')
+    = button_tag t('common.log_in'), :class => "btn btn-lg btn-primary btn-block"
+    =link_to t('user.forget_password'), CASino.config.tdtc[:tdtc_forget_password]
 
-  =link_to t('user.forget_password'), CASino.config.tdtc[:tdtc_forget_password]
+  -#=link_to t('user.forget_password'), CASino.config.tdtc[:tdtc_forget_password]
   = render 'footer'
