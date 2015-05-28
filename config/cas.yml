@@ -54,6 +54,61 @@ development:
     tdtc_about_url: ''
     tdtc_contact_url: ''
 
+production:
+  frontend:
+    sso_name: 'CASino'
+    footer_text: 'Powered by <a href="http://rbcas.com/">CASino</a>'
+  authenticators:
+
+########################################
+# LDAP
+########################################
+#    my_company_ldap:
+#      authenticator: 'LDAP'
+#      options:
+#        host: 'localhost'
+#        port: 636
+#        base: 'ou=people,dc=example,dc=com'
+#        username_attribute: 'uid'
+#        encryption: 'simple_tls'
+#        extra_attributes:
+#          email: 'mail'
+#          fullname: 'displayname'
+
+########################################
+# SQL (ActiveRecord authenticator)
+########################################
+    my_company_sql_database:
+      authenticator: "TdtcActiveRecord"
+      #authenticator: "ActiveRecord"
+      options:
+        connection:
+          adapter: "mysql2"
+          host: "localhost"
+          username: "root"
+          password: 
+          database: "tdtc_database"
+        table: "users"
+        username_column: "username"
+        password_column: "password_digest"
+        status_column: "status"
+        extra_attributes:
+          orgnization: 'orgnization'
+          roles_mask: 'roles_mask'
+          #email: "email"
+          #created_at: "created_at"
+          #current_sign_in_at: "current_sign_in_at"
+          #updated_at: "updated_at"
+          #
+  tdtc:
+    tdtc_home_url: 'http://localhost:4000/welcome/index'
+    tdtc_login_url: 'http://localhost:3000/login?service=http%3A%2F%2Flocalhost%3A4000%2F/welcome/index'
+    tdtc_signup_url: 'http://localhost:4000/registrations/signup'
+    tdtc_forget_password: 'http://localhost:4000/password_reset_requests/new'
+    tdtc_profile_url: ''
+    tdtc_help_url: ''
+    tdtc_about_url: ''
+    tdtc_contact_url: ''
 #frontend:
     #sso_name: 'CASinoApp'
         #footer_text: 'Powered by <a href="http://casino.rbcas.com/">CASino</a>'

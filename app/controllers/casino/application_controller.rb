@@ -5,7 +5,7 @@ class CASino::ApplicationController < ::ApplicationController
   include ApplicationHelper
 
   layout 'application'
-  before_filter :set_locale
+  #before_filter :set_locale
 
   unless Rails.env.development?
     rescue_from ActionView::MissingTemplate, with: :missing_template
@@ -22,9 +22,9 @@ class CASino::ApplicationController < ::ApplicationController
     @processor = CASino.const_get(:"#{processor_name}Processor").new(listener)
   end
 
-  def set_locale
-    I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
-  end
+  #def set_locale
+    #I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
+  #end
 
   def extract_locale_from_accept_language_header
     if request.env['HTTP_ACCEPT_LANGUAGE']
